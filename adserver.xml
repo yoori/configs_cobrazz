@@ -1109,7 +1109,7 @@ KPpdzvvtTnOPlC7SQZSYmdunr3Bf9b77AiC/ZidstK36dRILKz7OA54=
                 notice="disabled"
                 truncate_domain="false" vast_notice="disabled" fill_adid="false" ipw_extension="false" custom_click="false" skip_ext_category="false">
                 <configuration:userBind passback="false"
-                  redirect="https://instreamvideo.ru/core/match.gif?s=45&amp;id=##UNSIGNEDSSPUID=##"/>
+                  redirect="https://traffaret.com/core/match.gif?s=45&amp;id=##UNSIGNEDSSPUID=##"/>
               </configuration:source>
 
               <configuration:source id="bdstr" instantiate_type="body"
@@ -1195,7 +1195,7 @@ KPpdzvvtTnOPlC7SQZSYmdunr3Bf9b77AiC/ZidstK36dRILKz7OA54=
           <configuration:Cookies domain=".new-programmatic.com" path="/">
             <configuration:Cookie name="OPTED_OUT" domain=".new-programmatic.com" path="/" expires="157680000"/>
           </configuration:Cookies>
-          <configuration:inventoryStats simplifying="100" distrib_count="32"/>
+          <configuration:inventoryStats simplifying="5" distrib_count="32"/>
           <configuration:channelTriggerImpStats enable="false"/>
           <configuration:tagGroupStats enable="false"/>
           <configuration:snmpStats enable="true" monitoring_tag_id="12751" monitoring_country="ru" oid_suffix="0"/>
@@ -1447,7 +1447,7 @@ KPpdzvvtTnOPlC7SQZSYmdunr3Bf9b77AiC/ZidstK36dRILKz7OA54=
             </configuration:logGeneralizer></configuration>
         </service>
         <service descriptor="AdCluster/BackendSubCluster/ExpressionMatcher" name="ExpressionMatcher" host="adbe01 adbe02 adbe03 adbe04 adbe05 adbe06">
-          <configuration><configuration:expressionMatcher enable_channel_overlap_stats="false" positive_triggers_group_size="1" negative_triggers_group_size="0" max_trigger_visits="0" channel_match_cache_size="8589934592">
+          <configuration><configuration:expressionMatcher enable_channel_overlap_stats="false" positive_triggers_group_size="1" negative_triggers_group_size="0" max_trigger_visits="0" channel_match_cache_size="2147483648">
               <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
               <configuration:threadParams min="50"/>
               <configuration:updateParams period="1200"/>
