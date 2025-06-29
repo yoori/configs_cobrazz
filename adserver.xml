@@ -1285,11 +1285,30 @@ KPpdzvvtTnOPlC7SQZSYmdunr3Bf9b77AiC/ZidstK36dRILKz7OA54=
         <service descriptor="AdCluster/FrontendSubCluster/HttpFrontend" name="HttpFrontend" host="adfe100 adfe101 adfe102 adfe103 adfe104 adfe105 adfe106 adfe107 adfe108 adfe109 adfe110">
           <configuration><configuration:frontend>
               <configuration:adFCGINetworkParams port="10176" backlog="3000" accept_threads="15" keep_connections="300"/>
-              <configuration:rtbFCGI1NetworkParams port="10177" mon_port="10277" backlog="3000" accept_threads="15" keep_connections="300"/>
-              <configuration:rtbFCGI2NetworkParams port="10196" mon_port="10296" backlog="3000" accept_threads="15" keep_connections="300"/>
-              <configuration:trackFCGINetworkParams port="10195" backlog="6000" accept_threads="15" keep_connections="300"/>
+
+              <configuration:rtbFCGI1NetworkParams port="10177" mon_port="10377" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI2NetworkParams port="10196" mon_port="10396" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI3NetworkParams port="10197" mon_port="10397" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI4NetworkParams port="10198" mon_port="10398" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI5NetworkParams port="10200" mon_port="10400" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI6NetworkParams port="10201" mon_port="10401" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI7NetworkParams port="10202" mon_port="10402" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI8NetworkParams port="10203" mon_port="10403" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI9NetworkParams port="10204" mon_port="10404" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI10NetworkParams port="10205" mon_port="10405" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI11NetworkParams port="10206" mon_port="10406" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI12NetworkParams port="10207" mon_port="10407" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI13NetworkParams port="10208" mon_port="10408" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI14NetworkParams port="10209" mon_port="10409" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI15NetworkParams port="10210" mon_port="10410" backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI16NetworkParams port="10211" mon_port="10411" backlog="3000" accept_threads="15" keep_connections="300"/>
+
+              <configuration:trackFCGI1NetworkParams port="10195" mon_port="10395" backlog="6000" accept_threads="15" keep_connections="300"/>
+              <configuration:trackFCGI2NetworkParams port="10199" mon_port="10399" backlog="6000" accept_threads="15" keep_connections="300"/>
+
               <configuration:userBindFCGI1NetworkParams port="10178" backlog="6000" accept_threads="15" keep_connections="300"/>
               <configuration:userBindFCGI2NetworkParams port="10194" backlog="6000" accept_threads="15" keep_connections="300"/>
+
               <configuration:webServerParams timeout="3" server_limit="16" start_servers="1" max_clients="256000"/>
               <configuration:debugInfo use_acl="false" acl="" colocations="" show_history_profile="true"/>
               <configuration:requestModule set_uid="never" probe_uid="false" p3p_header="CP=&quot;NON COR PSAo PSDo OUR BUS UNI STA PRE&quot;">
