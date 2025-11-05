@@ -769,7 +769,9 @@ iVDFanoCrMVIpQ59XWHkzdFmoHXHBV7oibVjGSO7ULSQ7MJ1Nz51phuDJSgAIU7A
                 fill_adid="false"
                 ipw_extension="false"
                 custom_click="false"
-                native_instantiate_type="adm" native_impression_tracker_type="resources" skip_ext_category="false">
+                native_instantiate_type="adm"
+                native_impression_tracker_type="resources"
+                skip_ext_category="false">
                 <configuration:userBind passback="false" redirect="//match.new-programmatic.com/userbind?src=adblast0&amp;pbf=1&amp;gi=1"/>
               </configuration:source>
               <configuration:source id="rtw_native" instantiate_type="iframe with url" request_type="openrtb" notice="nurl" truncate_domain="false" vast_notice="disabled" fill_adid="false" ipw_extension="false" custom_click="false" native_instantiate_type="adm" native_impression_tracker_type="resources" skip_ext_category="false">
@@ -1151,7 +1153,12 @@ iVDFanoCrMVIpQ59XWHkzdFmoHXHBV7oibVjGSO7ULSQ7MJ1Nz51phuDJSgAIU7A
               <configuration:source id="giraff" instantiate_type="body"
                 request_type="openrtb"
                 notice="disabled"
-                truncate_domain="false" vast_notice="disabled" skip_ext_category="false">
+                truncate_domain="false"
+                vast_notice="disabled"
+                skip_ext_category="false"
+                native_instantiate_type="adm-1.2"
+                native_notice="nurl"
+                native_impression_tracker_type="resources">
               </configuration:source>
 
               <configuration:source id="gpmd">
