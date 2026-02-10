@@ -907,7 +907,7 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
                 native_instantiate_type="adm"
                 native_impression_tracker_type="resources"
                 skip_ext_category="false">
-                <configuration:userBind passback="true" redirect="https://match.new-programmatic.com/userbind?src=adblast0&amp;pbf=1&amp;gi=1&amp;passback=https://www.acint.net/match%3Fdp=136%26euid=##mime-url:UNSIGNEDSSPUID=##"/>
+		<configuration:userBind passback="true" redirect="https://mc.acint.net/match?dp=136&amp;euid=##mime-url:UNSIGNEDSSPUID=##"/>
               </configuration:source>
               <configuration:source id="ppush" instantiate_type="body" request_type="openrtb" notice="nurl" truncate_domain="false" vast_notice="disabled" fill_adid="false" ipw_extension="false" max_bid_time="150" custom_click="false" native_instantiate_type="adm" native_impression_tracker_type="resources" skip_ext_category="false">
                 <configuration:userBind passback="true">
