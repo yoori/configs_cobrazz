@@ -1332,15 +1332,15 @@ iVDFanoCrMVIpQ59XWHkzdFmoHXHBV7oibVjGSO7ULSQ7MJ1Nz51phuDJSgAIU7A
               <configuration:actionModule set_uid="true" task_limit="1000" threads="200"/>
               <configuration:optoutModule enable="true"/>
               <configuration:pageSenseModule caching="max-age=86400"/>
-              <configuration:biddingModule max_bid_time="60" flush_period="10" threads="700">
+              <configuration:biddingModule max_bid_time="60" flush_period="10" threads="128">
                 <configuration:logging log_level="6"/>
               </configuration:biddingModule>
               <configuration:userBindModule max_request_time="400"
-                                            threads="1000"
-                                            match_threads="100"
-                                            bind_pending_task_limit="300"
-                                            match_pending_task_limit="100"
-                                            set_uid="true"
+                threads="1000"
+                match_threads="100"
+                bind_pending_task_limit="300"
+                match_pending_task_limit="100"
+                set_uid="true"
                 create_profile="false"
                 nosecure_redirect="https://match.new-programmatic.com"/>
             </configuration:frontend></configuration>
