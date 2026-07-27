@@ -68,7 +68,7 @@ I8rQTGQs+WU9+mZRNXF4q9jS7PIYlpPLYVawcXownOhzKKZiLy8=
       </configuration:environment></configuration>
     <serviceGroup descriptor="AdCluster" name="AdCluster">
       <configuration><configuration:cluster enable_search_term_stats="true" referrer_logging_action_stats="domain and path" referrer_logging_site_referrer_stats="domain and path">
-          <configuration:environment workspace_root="/opt/foros/server/var" server_root="/opt/foros/server" cache_root="/opt/foros/server/var/cache" data_root="/opt/foros/server/var/www" config_root="/opt/foros/server/etc"/>
+          <configuration:environment workspace_root="/opt/foros/server/var" server_root="/opt/foros/server" cache_root="/opt/foros/server/var/cache" data_root="/opt/foros/server/var/www" config_root="/opt/foros/server/etc" cpu_affinity="auto"/>
           <configuration:secureParams ca="ca.pem"/>
           <configuration:coloParams backup_operations="false"
             enabled_countries="ru,in,kz,ge,by,uz,ua,tj,kg,am,az,md"
@@ -1208,7 +1208,7 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
           <configuration:Cookies domain=".new-programmatic.com" path="/">
             <configuration:Cookie name="OPTED_OUT" domain=".new-programmatic.com" path="/" expires="157680000"/>
           </configuration:Cookies>
-          <configuration:inventoryStats simplifying="1" distrib_count="32"/>
+          <configuration:inventoryStats simplifying="0.1" distrib_count="32"/>
           <configuration:channelTriggerImpStats enable="false"/>
           <configuration:tagGroupStats enable="false"/>
           <configuration:snmpStats enable="true" monitoring_tag_id="12751" monitoring_country="ru" oid_suffix="0"/>
@@ -1239,7 +1239,7 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
             <configuration:channelServer>
               <configuration:networkParams/>
               <configuration:logging log_level="4" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
-              <configuration:updateParams period="30" memory_size="100" chunks_count="32"/>
+              <configuration:updateParams period="30" memory_size="100" chunks_count="1"/>
             </configuration:channelServer>
           </configuration:frontendCluster></configuration>
         <service descriptor="AdCluster/FrontendSubCluster/CampaignManager" name="CampaignManager" host="adfe100 adfe101 adfe103 adfe104 adfe105 adfe106 adfe107 adfe108 adfe109 adfe110">
@@ -1261,19 +1261,12 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
               <configuration:storage min_free_space="0" max_add_undumped_size="300" max_temp_undumped_size="3072" max_history_undumped_size="2048" max_base_undumped_size="2048" max_freq_cap_undumped_size="3072"/>
             </configuration:userInfoManager></configuration>
         </service>
-        <service descriptor="AdCluster/FrontendSubCluster/UserInfoManagerController" name="UserInfoManagerController" host="adfe101 adfe100">
-          <configuration><configuration:userInfoManagerController>
-              <configuration:networkParams/>
-              <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
-              <configuration:controlParams status_check_period="10"/>
-            </configuration:userInfoManagerController></configuration>
-        </service>
-        <service descriptor="AdCluster/FrontendSubCluster/UserInfoController2" name="UserInfoController2" host="adfe101 adfe100">
-          <configuration><configuration:userInfoController2>
+        <service descriptor="AdCluster/FrontendSubCluster/UserInfoController" name="UserInfoController" host="adfe101 adfe100">
+          <configuration><configuration:userInfoController>
             <configuration:networkParams/>
             <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
             <configuration:controlParams status_check_period="10"/>
-          </configuration:userInfoController2></configuration>
+          </configuration:userInfoController></configuration>
         </service>
         <service descriptor="AdCluster/FrontendSubCluster/ChannelServer" name="ChannelServer" host="adfe100 adfe101 adfe103 adfe104 adfe105 adfe106 adfe107 adfe108 adfe109 adfe110">
           <configuration><configuration:channelServer>
@@ -1288,23 +1281,14 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
               <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
             </configuration:channelController></configuration>
         </service>
-        <service descriptor="AdCluster/FrontendSubCluster/ChannelController2" name="ChannelController2" host="adfe101 adfe100">
-          <configuration><configuration:channelController2>
-            <configuration:networkParams/>
-            <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
-          </configuration:channelController2></configuration>
-        </service>
         <service descriptor="AdCluster/FrontendSubCluster/UserBindServer" name="UserBindServer" host="adfe100 adfe101 adfe103 adfe104 adfe105 adfe106 adfe107 adfe108 adfe109 adfe110">
           <configuration><configuration:userBindServer user_dump_period="28800" user_seen_expire_time="604800" bind_request_expire_time="2073600" user_expire_time="62208000">
+              <configuration:networkParams grpc_process_threads="64"/>
               <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="86400" trace_size_cleanup="104857600" trace_time_cleanup="14400"/>
-              <configuration:threadParams min="100"/>
             </configuration:userBindServer></configuration>
         </service>
         <service descriptor="AdCluster/FrontendSubCluster/UserBindController" name="UserBindController" host="adfe101">
           <configuration><configuration:userBindController/></configuration>
-        </service>
-        <service descriptor="AdCluster/FrontendSubCluster/UserBindController2" name="UserBindController2" host="adfe101">
-          <configuration><configuration:userBindController2/></configuration>
         </service>
         <service descriptor="AdCluster/FrontendSubCluster/BillingServer" name="BillingServer" host="adfe100 adfe101 adfe103 adfe104 adfe105 adfe106 adfe107 adfe108 adfe109 adfe110">
           <configuration><configuration:billingServer>
@@ -1315,15 +1299,14 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
           <configuration><configuration:frontend>
               <configuration:adFCGINetworkParams backlog="3000" accept_threads="15" keep_connections="300"/>
 
-              <configuration:rtbFCGI1NetworkParams backlog="3000" accept_threads="15" keep_connections="300"/>
-              <configuration:rtbFCGI2NetworkParams backlog="3000" accept_threads="15" keep_connections="300"/>
+              <configuration:rtbFCGI1NetworkParams backlog="3000" accept_threads="4" keep_connections="300"/>
+              <configuration:rtbFCGI2NetworkParams backlog="3000" accept_threads="4" keep_connections="300"/>
 
-              <configuration:trackFCGI1NetworkParams backlog="6000" accept_threads="15" keep_connections="300"/>
-              <configuration:trackFCGI2NetworkParams backlog="6000" accept_threads="15" keep_connections="300"/>
+              <configuration:trackFCGINetworkParams backlog="6000" accept_threads="15" keep_connections="300"/>
 
               <configuration:userBindFCGI1NetworkParams backlog="6000" accept_threads="15" keep_connections="300"/>
 
-              <configuration:webServerParams timeout="3" server_limit="16" start_servers="1" max_clients="256000"/>
+              <configuration:webServerParams timeout="3" server_limit="8" start_servers="1" max_clients="256000"/>
               <configuration:debugInfo use_acl="false" acl="" colocations="" show_history_profile="true"/>
               <configuration:requestModule set_uid="never" probe_uid="false" p3p_header="CP=&quot;NON COR PSAo PSDo OUR BUS UNI STA PRE&quot;">
                 <configuration:session timeout="30"/>
@@ -1333,7 +1316,7 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
               <configuration:actionModule set_uid="true" task_limit="1000" threads="200"/>
               <configuration:optoutModule enable="true"/>
               <configuration:pageSenseModule caching="max-age=86400"/>
-              <configuration:biddingModule max_bid_time="60" flush_period="10" threads="128">
+              <configuration:biddingModule max_bid_time="60" flush_period="10" threads="64">
                 <configuration:logging log_level="6"/>
               </configuration:biddingModule>
               <configuration:userBindModule max_request_time="400"
@@ -1377,19 +1360,12 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
               <configuration:storage min_free_space="0" max_add_undumped_size="300" max_temp_undumped_size="3072" max_history_undumped_size="2048" max_base_undumped_size="2048" max_freq_cap_undumped_size="3072"/>
             </configuration:userInfoManager></configuration>
         </service>
-        <service descriptor="AdCluster/FrontendSubCluster/UserInfoManagerController" name="UserInfoManagerController" host="adfe201 adfe200">
-          <configuration><configuration:userInfoManagerController>
-              <configuration:networkParams/>
-              <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
-              <configuration:controlParams status_check_period="10"/>
-            </configuration:userInfoManagerController></configuration>
-        </service>
-        <service descriptor="AdCluster/FrontendSubCluster/UserInfoController2" name="UserInfoController2" host="adfe201 adfe200">
-          <configuration><configuration:userInfoController2>
+        <service descriptor="AdCluster/FrontendSubCluster/UserInfoController" name="UserInfoController" host="adfe201 adfe200">
+          <configuration><configuration:userInfoController>
             <configuration:networkParams/>
             <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
             <configuration:controlParams status_check_period="10"/>
-          </configuration:userInfoController2></configuration>
+          </configuration:userInfoController></configuration>
         </service>
         <service descriptor="AdCluster/FrontendSubCluster/ChannelServer" name="ChannelServer" host="adfe200 adfe201 adfe202 adfe203 adfe205 adfe206 adfe207 adfe208 adfe209 adfe210 adfe211">
           <configuration><configuration:channelServer>
@@ -1404,23 +1380,14 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
               <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
             </configuration:channelController></configuration>
         </service>
-        <service descriptor="AdCluster/FrontendSubCluster/ChannelController2" name="ChannelController2" host="adfe201 adfe200">
-          <configuration><configuration:channelController2>
-            <configuration:networkParams/>
-            <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
-          </configuration:channelController2></configuration>
-        </service>
         <service descriptor="AdCluster/FrontendSubCluster/UserBindServer" name="UserBindServer" host="adfe200 adfe201 adfe202 adfe203 adfe205 adfe206 adfe207 adfe208 adfe209 adfe210 adfe211">
           <configuration><configuration:userBindServer user_dump_period="28800" user_seen_expire_time="604800" bind_request_expire_time="2073600" user_expire_time="62208000">
+              <configuration:networkParams grpc_process_threads="64"/>
               <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="86400" trace_size_cleanup="104857600" trace_time_cleanup="14400"/>
-              <configuration:threadParams min="100"/>
             </configuration:userBindServer></configuration>
         </service>
         <service descriptor="AdCluster/FrontendSubCluster/UserBindController" name="UserBindController" host="adfe201">
           <configuration><configuration:userBindController/></configuration>
-        </service>
-        <service descriptor="AdCluster/FrontendSubCluster/UserBindController2" name="UserBindController2" host="adfe201">
-          <configuration><configuration:userBindController2/></configuration>
         </service>
         <service descriptor="AdCluster/FrontendSubCluster/BillingServer" name="BillingServer" host="adfe200 adfe201 adfe202 adfe203 adfe205 adfe206 adfe207 adfe208 adfe209 adfe210 adfe211">
           <configuration><configuration:billingServer>
@@ -1430,10 +1397,10 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
         <service descriptor="AdCluster/FrontendSubCluster/HttpFrontend" name="HttpFrontend" host="adfe200 adfe201 adfe202 adfe203 adfe205 adfe206 adfe207 adfe208 adfe209 adfe210 adfe211">
           <configuration><configuration:frontend>
               <configuration:adFCGINetworkParams backlog="6000" accept_threads="10" keep_connections="300"/>
-              <configuration:rtbFCGI1NetworkParams backlog="3000" accept_threads="10" keep_connections="300"/>
-              <configuration:rtbFCGI2NetworkParams backlog="3000" accept_threads="10" keep_connections="300"/>
+              <configuration:rtbFCGI1NetworkParams backlog="3000" accept_threads="4" keep_connections="300"/>
+              <configuration:rtbFCGI2NetworkParams backlog="3000" accept_threads="4" keep_connections="300"/>
               <configuration:userBindFCGI1NetworkParams backlog="6000" accept_threads="10" keep_connections="300"/>
-              <configuration:webServerParams timeout="3" server_limit="16" start_servers="1" max_clients="256000"/>
+              <configuration:webServerParams timeout="3" server_limit="8" start_servers="1" max_clients="256000"/>
               <configuration:debugInfo use_acl="false" acl="" colocations="" show_history_profile="true"/>
               <configuration:requestModule set_uid="never" probe_uid="false" p3p_header="CP=&quot;NON COR PSAo PSDo OUR BUS UNI STA PRE&quot;">
                 <configuration:session timeout="30"/>
@@ -1466,12 +1433,6 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
               </configuration:syncLogs>
             </configuration:logProcessing></configuration>
         </serviceGroup>
-        <service descriptor="AdCluster/BackendSubCluster/StatsCollector" name="StatsCollector" host="adbe00">
-          <configuration><configuration:statsCollector period="60">
-              <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
-            </configuration:statsCollector></configuration>
-        </service>
-
         <service descriptor="AdCluster/BackendSubCluster/LogGeneralizer" name="LogGeneralizer" host="adbe00">
           <configuration><configuration:logGeneralizer>
 	    <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="10080" trace_size_cleanup="104857600" trace_time_cleanup="10080"/>
@@ -1527,11 +1488,6 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
           <configuration><configuration:dictionaryProvider threads="1">
               <configuration:logging log_level="7" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="86400" trace_size_cleanup="104857600" trace_time_cleanup="14400"/>
             </configuration:dictionaryProvider></configuration>
-        </service>
-        <service descriptor="AdCluster/BackendSubCluster/UserOperationGenerator" name="UserOperationGenerator" host="adbe01">
-          <configuration><configuration:userOperationGenerator load_period="30" refresh_period="604800">
-              <configuration:logging log_level="17" sys_log="true" rotate_size="100" rotate_time="1440" error_size_cleanup="104857600" error_time_cleanup="86400" trace_size_cleanup="104857600" trace_time_cleanup="14400"/>
-            </configuration:userOperationGenerator></configuration>
         </service>
         <service descriptor="AdCluster/BackendSubCluster/CampaignServer" name="CampaignServer" host="adbe00">
           <configuration><configuration:campaignServer>
