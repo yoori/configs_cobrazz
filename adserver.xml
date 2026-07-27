@@ -1084,7 +1084,7 @@ wVD89qSTlnctLcZnIavjKsKUu1nA1iU0yYMdYepKR7lWbnwhdx3ewok=
                 native_impression_tracker_type="imp"
                 skip_ext_category="false">
                 <configuration:userBind passback="true"
-                  redirect="https://a.adlook.tech/sync?dsp=13&amp;buyerid=##UNSIGNEDSSPUID=##"/>
+                  redirect="https://sync.adlook.online/match/cobrazz?id=##UNSIGNEDSSPUID=##"/>
               </configuration:source>
 
               <configuration:source id="adp" instantiate_type="body"
